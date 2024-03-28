@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.elmenustask.home.ui.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_mealsDetailsFragment"
+            app:destination="@id/mealsDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_topCategoryFragment"
+            app:destination="@id/topCategoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/topCategoryFragment"
+        android:name="com.example.elmenustask.top_category.ui.fragment.TopCategoryFragment"
+        android:label="fragment_top_category"
+        tools:layout="@layout/fragment_top_category" >
+        <action
+            android:id="@+id/action_topCategoryFragment_to_mealsDetailsFragment"
+            app:destination="@id/mealsDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mealsDetailsFragment"
+        android:name="com.example.elmenustask.meals.ui.fragment.MealsDetailsFragment"
+        android:label="fragment_meals_details"
+        tools:layout="@layout/fragment_meals_details" />
+</navigation>

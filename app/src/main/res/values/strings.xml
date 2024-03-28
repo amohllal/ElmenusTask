@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">ElmenusTask</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="top_category">Top Category</string>
+    <string name="meals_details">Meals Details</string>
 </resources>

@@ -59,11 +59,6 @@ class NetworkModule {
             .create(ApiService::class.java)
 
     @Provides
-    fun provideInterceptor(): Interceptor =
-        HttpLoggingInterceptor()
-            .setLevel(HttpLoggingInterceptor.Level.BODY)
-
-    @Provides
     fun provideNetworkConnectionInterceptor(appContext: Application): NetworkConnectionInterceptor =
         NetworkConnectionInterceptor(appContext)
 
