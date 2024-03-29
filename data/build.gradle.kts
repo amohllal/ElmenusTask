@@ -4,6 +4,8 @@ plugins {
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
     id("kotlin-parcelize")
+    id("androidx.room")
+
 }
 
 android {
@@ -33,6 +35,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    room {
+        schemaDirectory("$projectDir/schemas")
+    }
 }
 
 dependencies {
@@ -57,6 +62,17 @@ dependencies {
     api("com.squareup.retrofit2:retrofit:2.10.0")
     api("com.squareup.retrofit2:converter-gson:2.10.0")
     api("com.squareup.okhttp3:logging-interceptor:4.9.2")
+
+
+    implementation("androidx.room:room-runtime:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
+    annotationProcessor("androidx.room:room-compiler:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
+    // for room
+    implementation("android.arch.lifecycle:extensions:1.1.1")
+    implementation ("android.arch.persistence.room:runtime:1.1.1")
+    annotationProcessor( "android.arch.lifecycle:compiler:1.1.1")
+    annotationProcessor ("android.arch.persistence.room:compiler:1.1.1")
 }
 kapt {
     correctErrorTypes = true

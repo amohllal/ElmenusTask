@@ -9,3 +9,5 @@ const val MEALS_DETAILS_END_POINT = "lookup.php"
 const val CATEGORY_DETAILS_END_POINT = "filter.php"
 const val MEALS_DETAILS_END_POINT_QUERY = "i"
 const val CATEGORY_DETAILS_END_POINT_QUERY = "c"
+const val HTTP_NOT_CONNECTED = 599
+const val MESSAGE = "No Internet Connection"

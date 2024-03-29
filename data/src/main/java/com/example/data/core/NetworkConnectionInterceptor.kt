@@ -6,8 +6,9 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import okhttp3.Interceptor
-import okhttp3.Request
+import okhttp3.Protocol
 import okhttp3.Response
+import okhttp3.ResponseBody
 import java.io.IOException
 
 
@@ -15,11 +16,18 @@ class NetworkConnectionInterceptor(private val appContext: Application) : Interc
 
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
-        if (!isConnected) {
-            throw NoConnectivityException()
+        return if (isConnected) {
+            chain.proceed(chain.request())
+        } else {
+            // Return a response with an error code indicating no internet connection
+            Response.Builder()
+                .request(chain.request())
+                .protocol(Protocol.HTTP_1_1)
+                .code(HTTP_NOT_CONNECTED)
+                .message(MESSAGE)
+                .body(ResponseBody.create(null, ""))
+                .build()
         }
-        val builder: Request.Builder = chain.request().newBuilder()
-        return chain.proceed(builder.build())
     }
 
    private val isConnected: Boolean
@@ -45,10 +53,4 @@ fun Context.isInternetAvailable(): Boolean {
         val activeNetwork = connectivityManager.activeNetworkInfo
         return activeNetwork != null && activeNetwork.isConnected
     }
-}
-
-class NoConnectivityException : IOException() {
-    // You can send any message whatever you want from here.
-    override val message: String
-        get() = "No Internet Connection"
 }

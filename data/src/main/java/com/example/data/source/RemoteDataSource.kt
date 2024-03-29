@@ -1,10 +1,12 @@
-package com.example.data.remote
+package com.example.data.source
 
 import com.example.data.core.HOME_BASE
 import com.example.data.core.MEALS_BASE
+import com.example.data.remote.ApiService
+import javax.inject.Inject
 import javax.inject.Named
 
-class RemoteDataSource(
+class RemoteDataSource @Inject constructor(
     @Named(HOME_BASE) private val homeApiService: ApiService,
     @Named(MEALS_BASE) private val mealsApiService: ApiService
 ) {
