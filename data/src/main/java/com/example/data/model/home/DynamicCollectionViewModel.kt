@@ -6,17 +6,17 @@ import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
 
 @Parcelize
-internal data class DynamicCollectionViewModel(
+data class DynamicCollectionViewModel(
     @SerializedName("Announcements")
-    val announcements: List<Announcement>? = listOf(),
+    val announcements: ArrayList<Announcement>? = null,
     @SerializedName("Categories")
-    val categories: List<CategoryX>? = listOf(),
+    val categories: ArrayList<CategoryX>? = null,
     @SerializedName("Id")
     val id: Int? = 0,
     @SerializedName("Ingredients")
-    val ingredients: List<Ingredient>? = listOf(),
+    val ingredients: ArrayList<Ingredient>? = null,
     @SerializedName("Meals")
-    val meals: List<MealX>? = listOf(),
+    val meals: ArrayList<MealX>? = null,
     @SerializedName("Order")
     val order: Int? = 0,
     @SerializedName("Title")

@@ -1,4 +1,4 @@
-package com.example.data.model.home
+package com.example.data.model.meal
 
 
 import com.google.gson.annotations.SerializedName
@@ -6,7 +6,7 @@ import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
 
 @Parcelize
-data class HomeDTO(
-    @SerializedName("Data")
-    val `data`: Data? = Data()
+data class MealsDetailsDTO(
+    @SerializedName("meals")
+    val meals: ArrayList<Meal?>? = null
 ) : Parcelable

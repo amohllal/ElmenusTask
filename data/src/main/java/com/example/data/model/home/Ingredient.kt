@@ -6,7 +6,7 @@ import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
 
 @Parcelize
-internal data class Ingredient(
+data class Ingredient(
     @SerializedName("idIngredient")
     val idIngredient: String? = null,
     @SerializedName("strDescription")

@@ -5,11 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.example.elmenustask.databinding.FragmentTopCategoryBinding
+import com.example.elmenustask.top_category.viewmodel.TopCategoryViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TopCategoryFragment : Fragment() {
     private var _binding: FragmentTopCategoryBinding? = null
     private val binding get() = _binding!!
+    private val topCategoryViewModel: TopCategoryViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

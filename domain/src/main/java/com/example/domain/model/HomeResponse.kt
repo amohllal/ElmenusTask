@@ -1,8 +1,7 @@
-package com.example.elmenustask.model
+package com.example.domain.model
 
-import com.example.elmenustask.R
 
-data class HomeUIResponse(
+data class HomeResponse(
     val banner: Banner? = null,
     val topCategory: Category? = null,
     val product: Product? = null,
@@ -57,4 +56,4 @@ data class Ingredient(
     val ingredientsList: ArrayList<IngredientDetails>? = null,
 )
 
-data class IngredientDetails(val idIngredient: String? = null, val ingredientIcon: Int = R.drawable.ingredient)
+data class IngredientDetails(val idIngredient: String? = null, val ingredientIcon: Int? = 0)

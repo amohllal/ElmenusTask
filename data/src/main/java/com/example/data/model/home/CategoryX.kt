@@ -6,7 +6,7 @@ import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
 
 @Parcelize
-internal data class CategoryX(
+data class CategoryX(
     @SerializedName("idCategory")
     val idCategory: String? = null,
     @SerializedName("strCategory")

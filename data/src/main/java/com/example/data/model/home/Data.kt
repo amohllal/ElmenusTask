@@ -6,7 +6,7 @@ import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
 
 @Parcelize
-internal data class Data(
+data class Data(
     @SerializedName("DynamicCollectionViewModel")
     val dynamicCollectionViewModel: List<DynamicCollectionViewModel>? = listOf()
 ) : Parcelable

@@ -1,4 +1,4 @@
-package com.example.data.model.home
+package com.example.data.model.meal
 
 
 import com.google.gson.annotations.SerializedName
