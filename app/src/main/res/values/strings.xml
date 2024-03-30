@@ -2,4 +2,8 @@
     <string name="app_name">ElmenusTask</string>
     <string name="top_category">Top Category</string>
     <string name="meals_details">Meals Details</string>
+    <string name="explore">Explore</string>
+    <string name="category">Category:</string>
+    <string name="origin">Origin:</string>
+    <string name="recipe">Recipe</string>
 </resources>

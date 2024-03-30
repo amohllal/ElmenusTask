@@ -13,21 +13,51 @@
         <item name="fontFamily">@font/gilroy_light</item>
         <item name="android:layout_marginStart">10dp</item>
     </style>
-    <style name="text_title_style">
+    <style name="title_24_bold">
         <item name="android:textSize">24sp</item>
         <item name="android:textColor">@color/black23</item>
         <item name="fontFamily">@font/gilroy_extra_bold</item>
     </style>
 
-    <style name="text_sections_title_style">
+    <style name="title_18_bold">
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/black23</item>
         <item name="fontFamily">@font/gilroy_extra_bold</item>
     </style>
 
-    <style name="description_style">
+    <style name="title_13_light_gray">
         <item name="android:textSize">13sp</item>
         <item name="android:textColor">@color/gray47</item>
+        <item name="fontFamily">@font/gilroy_light</item>
+    </style>
+
+    <style name="title_16_light">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black23</item>
+        <item name="fontFamily">@font/gilroy_light</item>
+    </style>
+
+    <style name="title_13_bold">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/black23</item>
+        <item name="fontFamily">@font/gilroy_extra_bold</item>
+    </style>
+
+    <style name="title_14_light">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/green99</item>
+        <item name="fontFamily">@font/gilroy_light</item>
+    </style>
+
+    <style name="title_16_bold">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black1E</item>
+        <item name="fontFamily">@font/gilroy_extra_bold</item>
+    </style>
+
+    <style name="title_13_light">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/black</item>
         <item name="fontFamily">@font/gilroy_light</item>
     </style>
 

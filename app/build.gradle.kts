@@ -83,6 +83,13 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
 
+    //viewpager2
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+
+    //youtube
+    implementation("com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.0")
+
+
 
 
 }
