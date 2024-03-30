@@ -6,4 +6,6 @@
     <string name="category">Category:</string>
     <string name="origin">Origin:</string>
     <string name="recipe">Recipe</string>
+    <string name="no_data_available">No Data Available</string>
+    <string name="an_error_occure">An Error Happened</string>
 </resources>
