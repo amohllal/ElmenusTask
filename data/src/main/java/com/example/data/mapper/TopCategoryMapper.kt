@@ -12,11 +12,11 @@ fun TopCategoryDTO.mapToDomain() = TopCategoryResponse(
     } as ArrayList<Meals>?
 )
 
-fun TopCategoryEntity.mapToDomain() =
+fun TopCategoryEntity?.mapToDomain() =
     TopCategoryResponse(
-        imageUrl = this.imageUrl,
-        title = this.title,
-        mealList = this.mealList?.map {
+        imageUrl = this?.imageUrl,
+        title = this?.title,
+        mealList = this?.mealList?.map {
             Meals(imageUrl = it.imageUrl, title = it.title, id = it.id)
         } as ArrayList<Meals>?)
 

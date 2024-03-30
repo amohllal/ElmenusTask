@@ -131,12 +131,12 @@ fun HomeDTO.mapToEntity() = this.data?.dynamicCollectionViewModel?.let {
 
 }
 
-fun HomeEntity.mapToDomain() = HomeResponse(
+fun HomeEntity?.mapToDomain() = HomeResponse(
 
-    banner = this.banner?.let {
+    banner = this?.banner?.let {
         Banner(title = it.title, id = it.id, url = it.url, type = it.type)
     },
-    product = this.product?.let {
+    product = this?.product?.let {
         Product(title = it.title, productList = it.productList?.map { productDetails ->
             ProductDetails(
                 idMeal = productDetails.idMeal,
@@ -149,7 +149,7 @@ fun HomeEntity.mapToDomain() = HomeResponse(
                 } as ArrayList<String>?
             )
         } as ArrayList<ProductDetails>)
-    }, topCategory = this.topCategory?.let {
+    }, topCategory = this?.topCategory?.let {
         Category(title = it.title, categoryList = it.categoryList?.map { categoryDetails ->
             CategoryDetails(
                 idCategory = categoryDetails.idCategory,
@@ -157,7 +157,7 @@ fun HomeEntity.mapToDomain() = HomeResponse(
                 strCategoryThumb = categoryDetails.strCategoryThumb
             )
         } as ArrayList<CategoryDetails>?)
-    }, ingredient = this.ingredient?.let {
+    }, ingredient = this?.ingredient?.let {
         Ingredient(
             title = it.title,
             ingredientsList = it.ingredientsList?.map { ingredientDetails ->
@@ -166,7 +166,7 @@ fun HomeEntity.mapToDomain() = HomeResponse(
                     ingredientIcon = ingredientDetails.ingredientIcon
                 )
             } as ArrayList<IngredientDetails>?)
-    }, announcement = this.announcement?.let {
+    }, announcement = this?.announcement?.let {
         Announcement(
             title = it.title,
             announcementList = it.announcementList?.map { announcementDetails ->

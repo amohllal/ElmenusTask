@@ -1,5 +1,8 @@
 package com.example.domain.model
 
+import androidx.annotation.Keep
+
+@Keep
 data class MealResponse(
     val mealTitle: String? = null,
     val strYoutube: String? = null,

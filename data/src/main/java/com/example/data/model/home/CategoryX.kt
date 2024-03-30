@@ -4,7 +4,9 @@ package com.example.data.model.home
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
+import androidx.annotation.Keep
 
+@Keep
 @Parcelize
 data class CategoryX(
     @SerializedName("idCategory")

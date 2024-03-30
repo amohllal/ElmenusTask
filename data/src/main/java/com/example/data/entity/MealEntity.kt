@@ -1,8 +1,9 @@
 package com.example.data.entity
 
+import androidx.annotation.Keep
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-
+@Keep
 @Entity(tableName = "meal_entity")
 data class MealEntity(
     @PrimaryKey(autoGenerate = true)

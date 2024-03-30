@@ -1,9 +1,10 @@
 package com.example.data.entity
 
+import androidx.annotation.Keep
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-
+@Keep
 @Entity(tableName = "top_category_entity")
 data class TopCategoryEntity(
     @PrimaryKey(autoGenerate = true)
@@ -12,7 +13,7 @@ data class TopCategoryEntity(
     val title: String? = null,
     val mealList: ArrayList<Meals>? = null
 )
-
+@Keep
 data class Meals(
     @ColumnInfo(name = "mealImage")
     val imageUrl: String? = null,

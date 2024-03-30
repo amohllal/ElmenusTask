@@ -19,3 +19,28 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Keep all entity classes in the com.example.data.entity package
+-keep class com.example.data.entity.** { *; }
+
+# Keep all model classes in the com.example.data.model package
+-keep class com.example.data.model.** { *; }
+
+# Keep all Retrofit interfaces
+-keep interface retrofit2.** { *; }
+
+# Keep Retrofit method parameters
+-keepclassmembers,allowobfuscation interface * {
+    @retrofit2.http.* <methods>;
+}
+
+# Keep GSON serialization/deserialization methods
+-keepclassmembers,allowobfuscation class * {
+    @com.google.gson.annotations.* <fields>;
+}
+
+# Keep Room database entity classes
+-keep,allowobfuscation class com.example.data.entity.** { *; }
+
+# Keep Room DAO (Data Access Object) interfaces
+-keep,allowobfuscation interface com.example.data.dao.** { *; }

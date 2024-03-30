@@ -1,5 +1,8 @@
 package com.example.elmenustask.model
 
+import androidx.annotation.Keep
+
+@Keep
 data class MealUIResponse(
     val mealTitle: String? = null,
     val strYoutube: String? = null,

@@ -18,13 +18,13 @@ fun MealsDetailsDTO.mapToDomain() = this.meals?.get(0)?.let { meal ->
     )
 }
 
-fun MealEntity.mapToDomain() = MealResponse(
-    mealTitle = this.mealTitle,
-    strYoutube = this.strYoutube,
-    strInstructions = this.strInstructions,
-    strArea = this.strArea,
-    strCategory = this.strCategory,
-    strTags = this.strTags?.map {
+fun MealEntity?.mapToDomain() = MealResponse(
+    mealTitle = this?.mealTitle,
+    strYoutube = this?.strYoutube,
+    strInstructions = this?.strInstructions,
+    strArea = this?.strArea,
+    strCategory = this?.strCategory,
+    strTags = this?.strTags?.map {
         it
     } as ArrayList<String>?
 )
