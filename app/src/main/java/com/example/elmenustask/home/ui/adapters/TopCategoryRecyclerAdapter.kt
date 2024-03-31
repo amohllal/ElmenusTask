@@ -33,7 +33,9 @@ class TopCategoryRecyclerAdapter(
 
             binding.topCategoryIv.showImage(data.strCategoryThumb)
             binding.topCategoryNameTv.text = data.strCategory
-            onItemClicked(data)
+            binding.root.setOnClickListener {
+                onItemClicked(data)
+            }
 
         }
     }

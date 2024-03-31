@@ -58,4 +58,4 @@ data class Ingredient(
     val ingredientsList: ArrayList<IngredientDetails>? = null,
 )
 @Keep
-data class IngredientDetails(val idIngredient: String? = null, val ingredientIcon: Int? = 0)
+data class IngredientDetails(val idIngredient: String? = null, val ingredientIcon: Int? = 0,val strIngredient: String?= null)

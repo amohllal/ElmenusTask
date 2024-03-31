@@ -44,9 +44,12 @@ class ProductRecyclerAdapter(
                         adapter = ProductTagsRecyclerAdapter(data.strTags!!)
                     }
                 }
+
+                root.setOnClickListener {
+                    onItemClicked(data)
+                }
             }
 
-            onItemClicked(data)
 
         }
     }

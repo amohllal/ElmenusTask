@@ -29,7 +29,9 @@ class IngredientsRecyclerAdapter(
             data: IngredientDetails,
             onItemClicked: (IngredientDetails) -> Unit
         ) {
-            onItemClicked(data)
+            binding.root.setOnClickListener {
+                onItemClicked(data)
+            }
 
         }
     }

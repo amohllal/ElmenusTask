@@ -8,4 +8,6 @@
     <string name="recipe">Recipe</string>
     <string name="no_data_available">No Data Available</string>
     <string name="an_error_occure">An Error Happened</string>
+    <string name="show_more">Show more</string>
+    <string name="show_less">Show less</string>
 </resources>

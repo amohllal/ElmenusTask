@@ -58,7 +58,8 @@ fun HomeDTO.mapToDomain() = this.data?.dynamicCollectionViewModel?.let {
                 ingredientsList = dynamicCollectionViewModel.ingredients?.map { ingredient ->
                     IngredientDetails(
                         idIngredient = ingredient.idIngredient,
-                        ingredientIcon = ingredient.strType?.toInt()
+                        ingredientIcon = ingredient.strType?.toInt(),
+                        strIngredient = ingredient.strIngredient
                     )
                 } as ArrayList<IngredientDetails>)
         }, announcement = it[3].let { dynamicCollectionViewModel ->
@@ -115,7 +116,8 @@ fun HomeDTO.mapToEntity() = this.data?.dynamicCollectionViewModel?.let {
                 ingredientsList = dynamicCollectionViewModel.ingredients?.map { ingredient ->
                     com.example.data.entity.IngredientDetails(
                         idIngredient = ingredient.idIngredient,
-                        ingredientIcon = ingredient.strType?.toInt()
+                        ingredientIcon = ingredient.strType?.toInt(),
+                        strIngredient = ingredient.strIngredient
                     )
                 } as ArrayList<com.example.data.entity.IngredientDetails>)
         }, announcement = it[3].let { dynamicCollectionViewModel ->

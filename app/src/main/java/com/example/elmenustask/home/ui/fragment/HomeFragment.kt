@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.domain.model.Announcement
 import com.example.domain.model.AnnouncementDetails
@@ -19,6 +20,9 @@ import com.example.domain.model.IngredientDetails
 import com.example.domain.model.Product
 import com.example.domain.model.ProductDetails
 import com.example.elmenustask.R
+import com.example.elmenustask.core.CATEGORY_ID
+import com.example.elmenustask.core.CATEGORY_IMAGE
+import com.example.elmenustask.core.CATEGORY_NAME
 import com.example.elmenustask.core.wrapper.DataStatus
 import com.example.elmenustask.databinding.FragmentHomeBinding
 import com.example.elmenustask.home.ui.adapters.AnnouncementPagerAdapter
@@ -78,21 +82,35 @@ class HomeFragment : Fragment() {
 
     private fun initTopCategoryRecyclerAdapter() {
         topCategoryRecyclerAdapter = TopCategoryRecyclerAdapter(categoryList) {
-            //TODO handle navigation
+            val bundle = Bundle().apply {
+                putString(CATEGORY_NAME, it.strCategory)
+                putString(CATEGORY_IMAGE, it.strCategoryThumb)
+            }
+            findNavController().navigate(R.id.actionHomeFragmentToTopCategoryFragment, bundle)
         }
         binding.topCategoryRv.adapter = topCategoryRecyclerAdapter
     }
 
     private fun initProductRecyclerAdapter() {
         productRecyclerAdapter = ProductRecyclerAdapter(mealsList) {
-            //TODO handle navigation
+            val bundle = Bundle().apply {
+                putString(CATEGORY_ID, it.idMeal)
+            }
+            findNavController().navigate(
+                R.id.action_homeFragment_to_mealsDetailsFragment,
+                bundle
+            )
         }
         binding.mealsRv.adapter = productRecyclerAdapter
     }
 
     private fun initIngredientsRecyclerAdapter() {
         ingredientsRecyclerAdapter = IngredientsRecyclerAdapter(ingredientsList) {
-            //TODO handle navigation
+            val bundle = Bundle().apply {
+                putString(CATEGORY_NAME, it.strIngredient)
+                putString(CATEGORY_IMAGE, null)
+            }
+            findNavController().navigate(R.id.actionHomeFragmentToTopCategoryFragment, bundle)
         }
         binding.ingredientsRv.adapter = ingredientsRecyclerAdapter
     }

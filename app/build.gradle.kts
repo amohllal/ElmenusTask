@@ -4,6 +4,7 @@ plugins {
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
     id("kotlin-parcelize")
+    id("androidx.navigation.safeargs")
 
 }
 
@@ -85,12 +86,6 @@ dependencies {
 
     //viewpager2
     implementation("androidx.viewpager2:viewpager2:1.0.0")
-
-    //youtube
-    implementation("com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.0")
-
-
-
 
 }
 kapt {

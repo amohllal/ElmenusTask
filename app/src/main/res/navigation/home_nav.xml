@@ -14,7 +14,7 @@
             android:id="@+id/action_homeFragment_to_mealsDetailsFragment"
             app:destination="@id/mealsDetailsFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_topCategoryFragment"
+            android:id="@+id/actionHomeFragmentToTopCategoryFragment"
             app:destination="@id/topCategoryFragment" />
     </fragment>
     <fragment
@@ -25,10 +25,23 @@
         <action
             android:id="@+id/action_topCategoryFragment_to_mealsDetailsFragment"
             app:destination="@id/mealsDetailsFragment" />
+        <argument android:name="categoryName"
+            android:defaultValue="null"
+            app:argType="string"
+            app:nullable="true"/>
+        <argument android:name="categoryImage"
+            android:defaultValue="null"
+            app:argType="string"
+            app:nullable="true"/>
     </fragment>
     <fragment
         android:id="@+id/mealsDetailsFragment"
         android:name="com.example.elmenustask.meals.ui.fragment.MealsDetailsFragment"
         android:label="fragment_meals_details"
-        tools:layout="@layout/fragment_meals_details" />
+        tools:layout="@layout/fragment_meals_details" >
+        <argument android:name="categoryId"
+            android:defaultValue="null"
+            app:argType="string"
+            app:nullable="true"/>
+    </fragment>
 </navigation>

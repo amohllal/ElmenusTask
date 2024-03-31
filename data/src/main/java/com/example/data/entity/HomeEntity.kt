@@ -79,5 +79,6 @@ data class Ingredient(
 @Keep
 data class IngredientDetails(
     val idIngredient: String? = null,
-    val ingredientIcon: Int? = 0
+    val ingredientIcon: Int? = 0,
+    val strIngredient: String? = null
 )
