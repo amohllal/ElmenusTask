@@ -16,16 +16,23 @@
             android:id="@+id/meals_details_toolbar"
             layout="@layout/toolbar_layout" />
 
+       
         <FrameLayout
-            android:id="@+id/mealWVLayout"
+            android:id="@+id/mealBanner"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginTop="18dp">
-
-            <WebView
-                android:id="@+id/mealWV"
+            android:layout_height="150dp">
+            <ImageView
+                android:id="@+id/mealIv"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                tools:src="@drawable/banner"
+                android:scaleType="centerCrop"/>
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_youtube"
+                android:layout_gravity="center_horizontal|center"/>
+
         </FrameLayout>
 
         <androidx.core.widget.NestedScrollView

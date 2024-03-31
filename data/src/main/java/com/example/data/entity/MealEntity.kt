@@ -13,5 +13,6 @@ data class MealEntity(
     val strInstructions: String? = null,
     val strArea: String? = null,
     val strCategory: String? = null,
+    val strMealThumb: String? = null,
     val strTags: ArrayList<String>? = null
 )

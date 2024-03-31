@@ -11,6 +11,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.domain.model.MealResponse
 import com.example.elmenustask.R
 import com.example.elmenustask.core.CATEGORY_ID
+import com.example.elmenustask.core.openYoutubeVideo
+import com.example.elmenustask.core.showImage
 import com.example.elmenustask.core.wrapper.DataStatus
 import com.example.elmenustask.databinding.FragmentMealsDetailsBinding
 import com.example.elmenustask.home.ui.adapters.ProductTagsRecyclerAdapter
@@ -27,7 +29,7 @@ class MealsDetailsFragment : Fragment() {
     private var productTagsRecyclerAdapter: ProductTagsRecyclerAdapter? = null
     private val tagsList = arrayListOf<String>()
     private var isContentExpanded = false
-
+    private var youtubeLink: String? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -70,10 +72,9 @@ class MealsDetailsFragment : Fragment() {
             mealCategoryTitleTv.text = data.strCategory
             mealOriginTitleTv.text = data.strArea
             recipeDescTv.text = data.strInstructions
-            binding.mealWVLayout.setOnClickListener {
-                data.strYoutube?.let { binding.mealWV.loadUrl(it) }
-            }
             data.strTags?.let { tagsList.addAll(it) }
+            data.strYoutube?.let { youtubeLink = it }
+            mealIv.showImage(data.strMealThumb)
             productTagsRecyclerAdapter?.notifyDataSetChanged()
         }
     }
@@ -115,13 +116,16 @@ class MealsDetailsFragment : Fragment() {
             }
             isContentExpanded = !isContentExpanded
         }
+
+        binding.mealBanner.setOnClickListener {
+            youtubeLink?.let { it1 -> requireContext().openYoutubeVideo(it1) }
+        }
     }
 
     private fun initView() {
         binding.mealsDetailsToolbar.titleToolbar.text = getString(R.string.meals_details)
         productTagsRecyclerAdapter = ProductTagsRecyclerAdapter(tagsList)
         binding.tagsRv.adapter = productTagsRecyclerAdapter
-        binding.mealWV.settings.javaScriptEnabled = true
     }
 
     private fun getArgumentsData() {
