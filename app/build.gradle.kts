@@ -77,7 +77,9 @@ dependencies {
 
 
     //Glide
-    implementation("com.github.bumptech.glide:glide:4.12.0")
+    implementation("com.github.bumptech.glide:glide:4.12.0") {
+        exclude(group = "com.github.bumptech.glide", module = "okhttp3-integration")
+    }
     kapt("com.github.bumptech.glide:compiler:4.12.0")
 
     // ViewModel
