@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "498380988804",
+    "project_id": "elmenustask",
+    "storage_bucket": "elmenustask.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:498380988804:android:68b7e3f687e9412a60bdd1",
+        "android_client_info": {
+          "package_name": "com.example.elmenustask"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXMtHObxlYagnSKuPHROwO78cLnTVgsE0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -5,6 +5,9 @@ plugins {
     id("com.google.dagger.hilt.android")
     id("kotlin-parcelize")
     id("androidx.navigation.safeargs")
+    id("com.google.gms.google-services")
+    id("com.google.firebase.appdistribution")
+
 
 }
 
@@ -92,6 +95,8 @@ dependencies {
 
     //viewpager2
     implementation("androidx.viewpager2:viewpager2:1.0.0")
+
+    implementation(platform("com.google.firebase:firebase-bom:33.3.0"))
 
 }
 kapt {

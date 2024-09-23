@@ -14,6 +14,8 @@ plugins {
     id("com.google.dagger.hilt.android") version "2.48" apply false
     id("com.android.library") version "8.2.1" apply false
     id("androidx.room") version "2.6.1" apply false
+    id("com.google.gms.google-services") version "4.4.2" apply false
+    id("com.google.firebase.appdistribution") version "5.0.0" apply false
 
 
 }
