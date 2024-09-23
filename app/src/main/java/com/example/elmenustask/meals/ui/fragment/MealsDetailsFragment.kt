@@ -51,7 +51,8 @@ class MealsDetailsFragment : Fragment() {
     private fun observeMealDetailsResponse() {
         mealsViewModel.mealDetailLiveData.observe(requireActivity()) {
             when (it?.status) {
-                DataStatus.Status.LOADING -> showLoading()
+                DataStatus.Status.SHOW_LOADING -> showLoading()
+                DataStatus.Status.HIDE_LOADING -> hideLoading()
                 DataStatus.Status.SUCCESS -> handleSuccessData(it.data)
                 DataStatus.Status.ERROR -> showError()
                 else -> {}
@@ -60,7 +61,7 @@ class MealsDetailsFragment : Fragment() {
     }
 
     private fun handleSuccessData(data: MealResponse?) {
-        hideLoading()
+        //hideLoading()
         if (data == null) handleNoDataLogic(getString(R.string.no_data_available)) else updateUI(
             data
         )
@@ -80,7 +81,7 @@ class MealsDetailsFragment : Fragment() {
     }
 
     private fun showError() {
-        hideLoading()
+        //hideLoading()
         handleNoDataLogic(getString(R.string.an_error_occure))
     }
 

@@ -71,7 +71,8 @@ class TopCategoryFragment : Fragment() {
     private fun observeTopCategoryResponse() {
         topCategoryViewModel.topCategoryLiveData.observe(requireActivity()) {
             when (it?.status) {
-                DataStatus.Status.LOADING -> showLoading()
+                DataStatus.Status.SHOW_LOADING -> showLoading()
+                DataStatus.Status.HIDE_LOADING -> hideLoading()
                 DataStatus.Status.SUCCESS -> handleSuccessData(it.data)
                 DataStatus.Status.ERROR -> showError()
                 else -> {}
@@ -80,7 +81,7 @@ class TopCategoryFragment : Fragment() {
     }
 
     private fun handleSuccessData(data: TopCategoryResponse?) {
-        hideLoading()
+        //hideLoading()
         if (data?.mealList.isNullOrEmpty()) handleNoDataLogic(getString(R.string.no_data_available)) else updateUI(
             data?.mealList
         )
@@ -98,7 +99,7 @@ class TopCategoryFragment : Fragment() {
     }
 
     private fun showError() {
-        hideLoading()
+       // hideLoading()
         handleNoDataLogic(getString(R.string.an_error_occure))
     }
 

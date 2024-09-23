@@ -25,9 +25,10 @@ class MealsViewModel @Inject constructor(
         viewModelScope.launch {
             getMealDetailsUseCase(categoryId ?: "")
                 .flowOn(Dispatchers.Main)
-                .onStart { mealDetailLiveData.postLoading() }
+                .onStart { mealDetailLiveData.postLoading(true) }
                 .collect {
                     mealDetailLiveData.postSuccess(it)
+                    mealDetailLiveData.postLoading(false)
                 }
         }
     }

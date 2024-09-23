@@ -1,5 +1,7 @@
 package com.example.elmenustask.core.wrapper
 
+import kotlinx.coroutines.delay
+
 
 class DataStatus<T> {
 
@@ -9,8 +11,13 @@ class DataStatus<T> {
 
     var error: Throwable? = null
 
-    fun loading(): DataStatus<T> {
-        status = Status.LOADING
+    suspend fun postLoading(isLoading: Boolean): DataStatus<T> {
+        status = if (isLoading){
+            Status.SHOW_LOADING
+        } else {
+            delay(100)
+            Status.HIDE_LOADING
+        }
         data = null
         error = null
         return this
@@ -32,7 +39,7 @@ class DataStatus<T> {
 
 
     enum class Status {
-        SUCCESS, ERROR, LOADING
+        SUCCESS, ERROR, SHOW_LOADING, HIDE_LOADING
     }
 
 

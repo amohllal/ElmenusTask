@@ -1,6 +1,7 @@
 package com.example.elmenustask.home.ui.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -117,8 +118,10 @@ class HomeFragment : Fragment() {
 
     private fun observeHomeResponse() {
         homeViewModel.homeLiveData.observe(requireActivity()) {
+            Log.d("TAG", "observeHomeResponse: ${it?.status}")
             when (it?.status) {
-                DataStatus.Status.LOADING -> showLoading()
+                DataStatus.Status.SHOW_LOADING -> showLoading()
+                DataStatus.Status.HIDE_LOADING -> hideLoading()
                 DataStatus.Status.SUCCESS -> handleSuccessData(it.data)
                 DataStatus.Status.ERROR -> showError()
                 else -> {}
@@ -140,7 +143,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun handleSuccessData(homeResponse: HomeResponse?) {
-        hideLoading()
+        Log.d("TAG", "handleSuccessData: ${homeResponse?.product}")
+       // hideLoading()
         if (homeResponse == null) handleNoDataLogic(getString(R.string.no_data_available)) else updateUI(
             homeResponse
         )
@@ -200,7 +204,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun showError() {
-        hideLoading()
+       // hideLoading()
         handleNoDataLogic(getString(R.string.an_error_occure))
     }
 

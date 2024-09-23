@@ -2,8 +2,8 @@ package com.example.elmenustask.core.wrapper
 
 class StateLiveData<T> : SingleLiveEvent<DataStatus<T>?>() {
 
-    fun postLoading() {
-        postValue(DataStatus<T>().loading())
+    suspend fun postLoading(isLoading: Boolean) {
+        postValue(DataStatus<T>().postLoading(isLoading))
     }
 
     fun postSuccess(data: T) {
