@@ -23,3 +23,19 @@
 -keep class com.example.elmenustask.model.** { *; }
 
 -keepclassmembers class com.example.elmenustask.model.** { *; }
+
+# Keep BouncyCastle related classes
+-keep class org.bouncycastle.** { *; }
+-dontwarn org.bouncycastle.**
+
+# Keep Conscrypt related classes
+-keep class org.conscrypt.** { *; }
+-dontwarn org.conscrypt.**
+
+# Keep OpenJSSE related classes
+-keep class org.openjsse.** { *; }
+-dontwarn org.openjsse.**
+
+# Keep OkHttp3 related platform classes
+-keep class okhttp3.internal.platform.** { *; }
+-dontwarn okhttp3.internal.platform.**
