@@ -30,3 +30,14 @@ jobs:
         with:
           name: AndroidTestName.apk
           path: app/build/outputs/apk/debug/app-debug.apk
+
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+
+      - name: Upload APK to Firebase App Distribution
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}  # Set this secret in your GitHub repository settings
+        run: |
+                firebase appdistribution:distribute app/build/outputs/apk/debug/app-debug.apk \
+                  --app 1:498380988804:android:68b7e3f687e9412a60bdd1 \
+                  --groups Tester_fake
