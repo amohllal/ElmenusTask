@@ -12,6 +12,10 @@ android {
     namespace = "com.example.elmenustask"
     compileSdk = 34
 
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
+
     defaultConfig {
         applicationId = "com.example.elmenustask"
         minSdk = 24
@@ -41,10 +45,6 @@ android {
 
     viewBinding {
         enable = true
-    }
-
-    lint {
-        baseline = file("lint-baseline.xml")
     }
 }
 

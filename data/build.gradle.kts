@@ -11,7 +11,9 @@ plugins {
 android {
     namespace = "com.example.data"
     compileSdk = 34
-
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
     defaultConfig {
         minSdk = 24
 

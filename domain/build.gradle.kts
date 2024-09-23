@@ -11,6 +11,10 @@ android {
     namespace = "com.example.domain"
     compileSdk = 34
 
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
+
     defaultConfig {
         minSdk = 24
 
