@@ -26,7 +26,7 @@ The presentation layer communicates with the domain layer through **UseCases**.
 
 ### domain (Business Logic Layer)
 
-This module contains the core business logic and is independent from Android framework components.
+This module contains the core business logic.
 
 Includes:
 - Domain models
