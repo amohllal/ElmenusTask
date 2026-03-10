@@ -8,9 +8,7 @@ import com.example.domain.usecase.GetHomeUseCase
 import com.example.elmenustask.core.wrapper.StateLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -26,7 +24,7 @@ open class HomeViewModel @Inject constructor(
     fun getHome() {
         viewModelScope.launch {
             getHomeUseCase()
-                .flowOn(Dispatchers.Main)
+                .flowOn(Dispatchers.IO)
                 .onStart { homeLiveData.postLoading(true) }
                 .collect {
                     homeLiveData.postSuccess(it)

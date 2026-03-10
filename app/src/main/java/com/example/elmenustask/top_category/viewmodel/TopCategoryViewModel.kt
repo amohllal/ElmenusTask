@@ -23,7 +23,7 @@ class TopCategoryViewModel @Inject constructor(
     fun getTopCategory() {
         viewModelScope.launch {
             getTopCategoryUseCase(categoryName ?: "")
-                .flowOn(Dispatchers.Main)
+                .flowOn(Dispatchers.IO)
                 .onStart { topCategoryLiveData.postLoading(true) }
                 .collect {
                     topCategoryLiveData.postSuccess(it)

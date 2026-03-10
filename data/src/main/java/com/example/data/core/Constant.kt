@@ -1,7 +1,7 @@
 package com.example.data.core
 
-const val HOME_BASE_URL = "https://66e90d50-5b69-488c-a03f-2d6c7e36a463.mock.pstmn.io/"
-const val MEALS_BASE_URL = "https://www.themealdb.com/api/json/v1/1/"
+val HOME_BASE_URL: String = NativeConfig.getHomeBaseUrl()
+val MEALS_BASE_URL: String = NativeConfig.getMealsBaseUrl()
 const val MEALS_BASE = "MEALS_BASE_URL"
 const val HOME_BASE = "HOME_BASE_URL"
 const val HOME_END_POINT = "home"
