@@ -1,57 +1,112 @@
-# food discovery app
+# Food Discovery App
 
-Android Application that lets users explore food, categories, and meals.
+An Android application that allows users to explore meals, browse top food categories, and view detailed information about individual meals, including ingredients and preparation instructions.
 
-## Getting Started
+The application integrates a remote API and local persistence to provide a simple offline fallback when network requests fail.
 
-*To get this project up and running on your local machine for development and testing purposes.* Make sure all prerequisites are met.  
-Clone this project on your machine by running  
+---
 
-     git clone https://github.com/amohllal/ElmenusTask.git   
+# Architecture
 
-- Open the project on AndroidStudio  
-- Attach your device via (USB or WIFI) or start an emulator   
-- Select the device from the menu   
-- Click the run button   
+The project follows **Clean Architecture with MVVM** and is organized into three modules:
 
-![enter image description here](https://i.ibb.co/Y7zh8b8/running-app.png)
+### app (Presentation Layer)
+Responsible for UI and user interaction.
 
-### Prerequisites  
-  
--  JDK 1.8
--  Android Studio Hedgehog | 2023.1.1 Patch 1
--  Latest Android SDK Tools and build tools.  
+Contains:
+- Fragments
+- ViewModels
+- RecyclerView adapters
+- Navigation Component
+- ViewBinding
 
- ### Languages, Architecture, Libraries, and Tools used
+The presentation layer communicates with the domain layer through **UseCases**.
 
-- [Kotlin](https://kotlinlang.org/)
-- [Clean Architecture With MVVM](https://github.com/android10/Android-CleanArchitecture-Kotlin)
-  - Highly Testable
-  - Framework Independent
-  - UI Independent
-  - Database Independent
-- [Modular](https://proandroiddev.com/android-components-architecture-in-a-modular-word-7414a0631969)
-  - Speeds up builds
-  - Simplifies test automation
-  - Code Refactoring
-- [Hilt](https://dagger.dev/hilt)
-  -  reduces the boilerplate code
-  -  managing lifecycles automatically
-- [Room](https://developer.android.com/topic/libraries/architecture/room.html)
-  - Compile Time Error
-  - Support Other Components
-  - reduce the boilerplate code
--   [Android Architecture Components](https://developer.android.com/topic/libraries/architecture/index.html)
--   [Flow](https://developer.android.com/kotlin/flow)
--   [Navigation Components](https://developer.android.com/guide/navigation)
--   [Obfuscating](https://developer.android.com/studio/build/shrink-code)
--   [Retrofit](http://square.github.io/retrofit/)
--   [Glide](https://github.com/bumptech/glide)
--   [OkHttp](http://square.github.io/okhttp/)
--   [Gson](https://github.com/google/gson)
--   [Mockito](http://site.mockito.org/)
--   [Material Design Components](https://material.io/components?platform=android)
+---
 
-### ScreenShots
-<img width="209" alt="screen3" src="https://github.com/amohllal/ElmenusTask/assets/40995581/97488a9b-818b-4f6e-9f81-79e2e4302de1.jpg"><img width="208" alt="screen1" src="https://github.com/amohllal/ElmenusTask/assets/40995581/3f0a99a4-e965-4565-8670-676a2b44372b.jpg"><img width="208" alt="screen1" src="https://github.com/amohllal/ElmenusTask/assets/40995581/9c36cbe4-58d1-4dbd-8c05-b0da2e78bb07.jpg">
+### domain (Business Logic Layer)
 
+This module contains the core business logic.
+
+Includes:
+- Domain models
+- Repository interfaces
+- Use cases
+
+Example use cases:
+- `GetHomeUseCase`
+- `GetTopCategoryUseCase`
+- `GetMealDetailsUseCase`
+
+---
+
+### data (Data Layer)
+
+Responsible for providing data to the application.
+
+Includes:
+- Retrofit API services
+- Room database
+- Repository implementations
+- Remote and Local data sources
+- Data mappers (DTO → Domain → Entity)
+
+The repositories combine remote and local sources to provide a simple **offline-first fallback strategy**.
+
+---
+
+# Tech Stack
+
+- Kotlin
+- Coroutines & Flow
+- Hilt (Dependency Injection)
+- Retrofit & OkHttp
+- Room Database
+- Navigation Component
+- Glide
+- ViewBinding
+- Gson
+
+---
+
+# Key Design Decisions
+
+• **Clean Architecture** was used to enforce separation of concerns and improve testability.
+
+• **Multi-module structure** was introduced to isolate domain logic from Android framework dependencies and improve scalability.
+
+• **Repository pattern** was used to abstract data sources and keep ViewModels independent from data implementation.
+
+• **Offline fallback strategy** was implemented by combining remote API responses with cached data stored in Room.
+
+• **UseCase layer** was added to encapsulate business logic and keep ViewModels lightweight.
+
+---
+
+# Testing
+
+Unit tests are included for the domain use cases using **JUnit and Mockito** to demonstrate how the architecture supports isolated testing.
+
+---
+
+# Screenshots
+
+<img width="209" alt="screen3" src="https://github.com/amohllal/ElmenusTask/assets/40995581/97488a9b-818b-4f6e-9f81-79e2e4302de1.jpg">
+
+<img width="208" alt="screen1" src="https://github.com/amohllal/ElmenusTask/assets/40995581/3f0a99a4-e965-4565-8670-676a2b44372b.jpg">
+
+<img width="208" alt="screen2" src="https://github.com/amohllal/ElmenusTask/assets/40995581/9c36cbe4-58d1-4dbd-8c05-b0da2e78bb07.jpg">
+
+---
+
+# Running the project
+
+Clone the repository: git clone https://github.com/amohllal/ElmenusTask.git
+Open the project in **Android Studio** and run it on a connected device or emulator.
+
+---
+
+# Note
+
+The API used in this project was originally provided as part of the Elmenus technical task and may no longer be publicly accessible.  
+If the endpoint returns `404`, the architecture and data flow remain intact and demonstrate the intended implementation.
