@@ -49,7 +49,7 @@ class MealsDetailsFragment : Fragment() {
     }
 
     private fun observeMealDetailsResponse() {
-        mealsViewModel.mealDetailLiveData.observe(requireActivity()) {
+        mealsViewModel.mealDetailLiveData.observe(viewLifecycleOwner) {
             when (it?.status) {
                 DataStatus.Status.SHOW_LOADING -> showLoading()
                 DataStatus.Status.HIDE_LOADING -> hideLoading()

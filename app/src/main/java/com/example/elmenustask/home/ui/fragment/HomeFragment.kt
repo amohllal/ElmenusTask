@@ -117,7 +117,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun observeHomeResponse() {
-        homeViewModel.homeLiveData.observe(requireActivity()) {
+        homeViewModel.homeLiveData.observe(viewLifecycleOwner) {
             Log.d("TAG", "observeHomeResponse: ${it?.status}")
             when (it?.status) {
                 DataStatus.Status.SHOW_LOADING -> showLoading()

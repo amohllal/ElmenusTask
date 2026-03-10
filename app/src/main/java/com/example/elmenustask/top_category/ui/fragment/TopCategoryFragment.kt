@@ -69,7 +69,7 @@ class TopCategoryFragment : Fragment() {
     }
 
     private fun observeTopCategoryResponse() {
-        topCategoryViewModel.topCategoryLiveData.observe(requireActivity()) {
+        topCategoryViewModel.topCategoryLiveData.observe(viewLifecycleOwner) {
             when (it?.status) {
                 DataStatus.Status.SHOW_LOADING -> showLoading()
                 DataStatus.Status.HIDE_LOADING -> hideLoading()
