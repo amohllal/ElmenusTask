@@ -109,4 +109,4 @@ Open the project in **Android Studio** and run it on a connected device or emula
 # Note
 
 The API used in this project was originally provided as part of the Elmenus technical task and may no longer be publicly accessible.  
-If the endpoint returns `40٤`, the architecture and data flow remain intact and demonstrate the intended implementation.
+If the endpoint returns `404`, the architecture and data flow remain intact and demonstrate the intended implementation.
